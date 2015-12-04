@@ -14,13 +14,21 @@ snippet ?=
 snippet ?
 	<?php ${0} ?>
 snippet ?f
-	<?php foreach ($${1:vars} as $${2:$var}): ?>
+	<?php
+	foreach ($${1:vars} as $${2:$var}) {
+		?>
 		${0}
-	<?php endforeach ?>
+		<?php
+	}
+	?>
 snippet ?i
-	<?php if ($${1:var}): ?>
+	<?php
+	if ($${1:var}) {
+		?>
 		${0}
-	<?php endif ?>
+		<?php
+		}
+	?>
 snippet ns
 	namespace ${1:Foo\Bar\Baz};
 	${0}
@@ -265,9 +273,13 @@ snippet ifn
 		${2}
 	}
 snippet ifil
-	<?php if (${1:/* condition */}): ?>
+	<?php
+	if (${1:/* condition */}) {
+		?>
 		${0}
-	<?php endif; ?>
+		<?php
+	}
+	?>
 snippet ife
 	if (${1:/* condition */}) {
 		${2}
@@ -276,11 +288,17 @@ snippet ife
 	}
 	${0}
 snippet ifeil
-	<?php if (${1:/* condition */}): ?>
+	<?php
+	if (${1:/* condition */}) {
+		?>
 		${2:<!-- html... -->}
-	<?php else: ?>
+		<?php
+	else {
+		?>
 		${3:<!-- html... -->}
-	<?php endif; ?>
+		<?php
+	}
+	?>
 	${0}
 snippet el
 	else {
@@ -313,17 +331,25 @@ snippet foreach
 		${0}
 	}
 snippet foreachil
-	<?php foreach ($${1:variable} as $${2:value}): ?>
+	<?php
+	foreach ($${1:variable} as $${2:value}) {
+		?>
 		${0:<!-- html... -->}
-	<?php endforeach; ?>
+		<?php
+		}
+	?>
 snippet foreachk
 	foreach ($${1:variable} as $${2:key} => $${3:value}) {
 		${0}
 	}
 snippet foreachkil
-	<?php foreach ($${1:variable} as $${2:key} => $${3:value}): ?>
+	<?php
+	foreach ($${1:variable} as $${2:key} => $${3:value}) {
+		?>
 		${0:<!-- html... -->}
-	<?php endforeach; ?>
+		<?php
+	}
+	?>
 # $... = array (...)
 snippet array
 	$${1:arrayName} = array('${2}' => ${3});
